@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: django-postgresql-sample-app
+metadata:
+    template: azd-init@1.23.10
+services:
+    django-postgresql-sample-app:
+        project: .
+        host: containerapp
+        language: python
+resources:
+    django-postgresql-sample-app:
+        type: host.containerapp
+        uses:
+            - djangodb
+        port: 80
+    djangodb:
+        type: db.postgres
